@@ -40,6 +40,10 @@ gem 'active_model_serializers'
 gem 'swagger-docs'
 # Use Faker to generate data dynamically
 gem 'faker'
+# Simple, Heroku-friendly Rails app configuration using ENV and a single YAML file
+gem 'figaro'
+# Template engine
+gem 'slim-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -1,0 +1,23 @@
+h2
+  | Nosso sistema já cadastrou seu produto.
+h4
+  | Por enquanto, aguarde...
+b
+  | Mensagem automática, não é necessário responder.
+p
+  | Email:
+div
+  = @product.supplier.email
+p
+  | Produto:
+div
+  | Um novo produto foi cadastrado em nosso sistema.
+  = @product.name
+  = @product.supplier.company_name
+br
+b
+  | Atenciosamente, 
+  | Fractal Tecnologia
+p
+  |  Reclamações, Agradecimentos e mais informações entre em contaco conosco pelo email 
+  | contact@fractal.com.br

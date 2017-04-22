@@ -85,6 +85,11 @@ module Api::V1
       @product.categories  = Category.where(id: params[:category_id])
 
       if @product.save
+        # Calling SendEmailToSupplierJob async with perform_later
+        # SendEmailToSupplierJob.perform_later @product
+        @product = Product.find(916)
+        SupplierMailer.registered_product(@product).deliver_now
+        
         render json: @product, status: :created
       else
         render json: @product.errors, status: :unprocessable_entity
