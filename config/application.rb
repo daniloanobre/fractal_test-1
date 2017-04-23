@@ -27,6 +27,9 @@ module Fractal
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
+    # Set up Redis cache store for rails caching
+    config.cache_store = :redis_store, ENV["CACHE_STORE"], { expires_in: 90.minutes }
+
     # Set queue adapter to sidekiq
     config.active_job.queue_adapter = :sidekiq
   end

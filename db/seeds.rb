@@ -12,12 +12,12 @@ Supplier.delete_all
 Place.delete_all
 
 Category.create([
-  { name: 'Brinquedos' },
-  { name: 'Filmes' },
-  { name: 'Games' },
-  { name: 'Ação' },
-  { name: 'Eletrônicos' },
-  { name: 'Educação' }
+  { name: 'Brinquedos', description: Faker::Lorem.paragraph },
+  { name: 'Filmes', description: Faker::Lorem.paragraph },
+  { name: 'Games', description: Faker::Lorem.paragraph },
+  { name: 'Ação', description: Faker::Lorem.paragraph },
+  { name: 'Eletrônicos', description: Faker::Lorem.paragraph },
+  { name: 'Educação', description: Faker::Lorem.paragraph }
 ])
 
 Supplier.create([
