@@ -36,8 +36,6 @@ gem 'redis-rails'
 gem 'redis-rack-cache'
 # Convention over configuration to your JSON generation
 gem 'active_model_serializers'
-# Generates swagger-ui json files for rails apps with APIs
-gem 'swagger-docs'
 # Use Faker to generate data dynamically
 gem 'faker'
 # Simple, Heroku-friendly Rails app configuration using ENV and a single YAML file

@@ -3,47 +3,6 @@ module Api::V1
     include ProductsHelper
     before_action :set_product, only: [:show, :update, :destroy, :supplier, :categories, :place]
 
-    # swagger_controller :products, 'Products'
-
-    # swagger_api :index do
-    #   summary 'Fetches all products'
-    #   notes "This lists all the products"
-    #   param :query, :name, :string, :optional, "Product name"
-    #   param :query, :category, :string, :optional, "Category name"
-    # end
-
-    # swagger_api :show do
-    #   summary "Fetches a single Product item"
-    #   param :path, :id, :integer, :optional, "Product Id"
-    #   response :ok, "Success", :Product
-    #   response :not_found
-    # end
-
-    # swagger_api :create do
-    #   summary "Creates a new Product"
-    #   param :form, :name, :string, :required, "Product name"
-    #   param :form, :supplier_id, :string, :required, "Supplier Id"
-    #   param :form, :place_id, :string, :required, "Place Id"
-    #   param :form, :category_id, :array, :required, "Category Id"
-    #   param_list :form, :role, :string, :required, "Role", [ "admin", "superadmin", "user" ]
-    # end
-
-    # swagger_api :update do
-    #   summary "Updates an existing Product"
-    #   param :path, :id, :integer, :required, "Product Id"
-    #   param :form, :first_name, :string, :optional, "First name"
-    #   param :form, :last_name, :string, :optional, "Last name"
-    #   param :form, :email, :string, :optional, "Email address"
-    #   param :form, :tag, :Tag, :required, "Tag object"
-    #   response :not_found
-    # end
-
-    # swagger_api :destroy do
-    #   summary "Deletes an existing Product item"
-    #   param :path, :id, :integer, :optional, "Product Id"
-    #   response :not_found
-    # end
-
     # GET /products
     def index
       search = params[:name] || "*"

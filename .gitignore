@@ -15,9 +15,3 @@
 
 # Ignore Byebug command history file.
 .byebug_history
-
-# Ignore Swagger JSON files.
-/public/apidocs/
-
-# Ignore application configuration
-/config/application.yml

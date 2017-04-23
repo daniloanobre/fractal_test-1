@@ -1,0 +1,219 @@
+swagger: '2.0'
+info:
+  title: Fractal API
+  description: Test for Fractal Back-End Developer
+  version: 1.0.0
+host: 'localhost:3000'
+schemes:
+  - http
+basePath: /v1
+produces:
+  - application/json
+paths:
+  /products:
+    get:
+      summary: Product Types
+      description: |
+        The Products endpoint returns information about products in market.
+      parameters:
+        - name: category
+          in: query
+          description: Display products with this category.
+          required: true
+          type: string
+        - name: name
+          in: query
+          description: Display products with this full or partial name.
+          required: true
+          type: string
+      tags:
+        - Products
+      responses:
+        '200':
+          description: An array of products
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Product'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      tags:
+        - Products
+      summary: Add an new product
+      description: This resource add a new `product`.
+      parameters:
+        - in: body
+          name: Product
+          description: Product Object
+          schema:
+            $ref: '#/definitions/Product'
+      responses:
+        '200':
+          description: An `product` object
+          schema:
+            $ref: '#/definitions/Product'
+  '/products/{id}':
+    get:
+      tags:
+        - Products
+      summary: Retrieve an product
+      description: This resource retrieve a existing `product`.
+      parameters:
+        - in: path
+          name: id
+          description: Product ID that needs to be fetched
+          required: true
+          type: string
+      responses:
+        '200':
+          description: An `product` object
+          schema:
+            $ref: '#/definitions/Product'
+    put:
+      tags:
+        - Products
+      summary: Update an product
+      description: This resource update a existing `product`.
+      parameters:
+        - in: path
+          name: id
+          description: Product ID that needs to be fetched
+          required: true
+          type: string
+        - in: body
+          name: Product
+          description: Product Object
+          schema:
+            $ref: '#/definitions/Product'
+      responses:
+        '200':
+          description: An `product` object
+          schema:
+            $ref: '#/definitions/Product'
+    delete:
+      tags:
+        - Products
+      summary: Remove an product
+      description: This resource remove a existing `product`.
+      parameters:
+        - in: path
+          name: id
+          description: Product ID that needs to be fetched
+          required: true
+          type: string
+      responses:
+        '200':
+          description: An `product` object
+          schema:
+            $ref: '#/definitions/Product'
+  /products/categories:
+    get:
+      summary: Product Categories
+      description: The Product Categories endpoint returns categories of the product.
+      tags:
+        - Categories
+      responses:
+        '200':
+          description: An array of categories
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Category'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /products/supplier:
+    get:
+      summary: Product Owner
+      description: The Product Owner endpoint returns a owner that supply the products to market.
+      tags:
+        - Supplier
+      responses:
+        '200':
+          description: A owner
+          schema:
+            $ref: '#/definitions/Supplier'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /products/place:
+    get:
+      summary: Product Location
+      description: The Product Location endpoint returns where the product is located in market.
+      tags:
+        - Place
+      responses:
+        '200':
+          description: A place
+          schema:
+            $ref: '#/definitions/Place'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+definitions:
+  Product:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: Unique identifier representing a specific product.
+      name:
+        type: string
+        description: Display name of product.
+      supplier:
+        $ref: '#/definitions/Supplier'
+      place:
+        $ref: '#/definitions/Place'
+      categories:
+        type: array
+        items:
+          $ref: '#/definitions/Category'
+  Place:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: Unique identifier representing a specific place where product is located.
+      hall:
+        type: string
+        description: Display the hall where product is located.
+      shelf:
+        type: string
+        description: Display the shelf where product is located.
+  Category:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: Unique identifier representing a specific category of product.
+      name:
+        type: string
+        description: Display category name of product.
+  Supplier:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: Unique identifier representing a specific supplier of product.
+      company_name:
+        type: string
+        description: Display company name owner the product.
+      email:
+        type: string
+        description: Display email owner the product.
+  Error:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      fields:
+        type: string
