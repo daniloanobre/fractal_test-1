@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  get '/docs', to: redirect('/vendors/swagger-ui/dist/index.html?url=/api/v1/api-docs.json')
+  # http://petstore.swagger.io/v2/swagger.json
+  get '/docs', to: redirect('/api-docs.html?url=/api/v1/api-docs.json')
   
   scope module: 'api' do
     namespace :v1 do
