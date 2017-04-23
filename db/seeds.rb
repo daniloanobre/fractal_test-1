@@ -21,7 +21,7 @@ Category.create([
 ])
 
 Supplier.create([
-  { company_name: 'Estrela', email: ENV["smtp_email"] },
+  { company_name: 'Estrela', email: ENV["SMTP_EMAIL"] },
   { company_name: 'Disney', email: Faker::Internet.email },
   { company_name: 'Valve', email: Faker::Internet.email }
 ])

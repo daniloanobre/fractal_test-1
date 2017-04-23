@@ -85,10 +85,11 @@ module Api::V1
       @product.categories  = Category.where(id: params[:category_id])
 
       if @product.save
-        # Calling SendEmailToSupplierJob async with perform_later
-        # SendEmailToSupplierJob.perform_later @product
-        @product = Product.find(916)
-        SupplierMailer.registered_product(@product).deliver_now
+        # The deliver_later uses ActiveJob too, but i chose create another job for this
+        # SupplierMailer.registered_product(@product).deliver_later
+        
+        # So calling SendEmailToSupplierJob asyncronously with perform_later
+        SendEmailToSupplierJob.perform_later @product
         
         render json: @product, status: :created
       else

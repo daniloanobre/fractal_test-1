@@ -6,6 +6,8 @@ class SendEmailToSupplierJob < ApplicationJob
   end
 
   def perform(product)
-    SupplierMailer.registered_product(product).deliver_later
+    # The deliver_now not use ActiveJob and I did it to create Delay 
+    # and simulate a sophisticated background job.
+    SupplierMailer.registered_product(product).deliver_now
   end
 end
