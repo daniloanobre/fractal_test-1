@@ -1,0 +1,19 @@
+{
+  "name": "fractal",
+  "license": "MIT",
+  "private": true,
+  "authors": [
+    "Laércio <laerciosbezerra@gmail.com>"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/vendors",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "swagger-ui": "^3.0.7"
+  }
+}
