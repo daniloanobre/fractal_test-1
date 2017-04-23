@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :place do
-    hall "MyString"
-    shelf "MyString"
+    hall Faker::StarWars.droid
+    shelf Faker::StarWars.droid
   end
 end

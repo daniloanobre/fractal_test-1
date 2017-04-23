@@ -5,6 +5,8 @@ class Product < ApplicationRecord
 
   searchkick word_start: [:name]
 
+  validates :name, presence: true
+
   def search_data
     {
       name: name,

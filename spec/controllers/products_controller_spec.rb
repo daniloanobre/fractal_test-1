@@ -18,7 +18,7 @@ require 'rails_helper'
 # Message expectations are only used when there is no simpler way to specify
 # that an instance is receiving a specific message.
 
-RSpec.describe ProductsController, type: :controller do
+RSpec.describe Api::V1::ProductsController, type: :controller do
 
   # This should return the minimal set of attributes required to create a valid
   # Product. As you add validations to Product, be sure to
@@ -48,21 +48,6 @@ RSpec.describe ProductsController, type: :controller do
     it "assigns the requested product as @product" do
       product = Product.create! valid_attributes
       get :show, params: {id: product.to_param}, session: valid_session
-      expect(assigns(:product)).to eq(product)
-    end
-  end
-
-  describe "GET #new" do
-    it "assigns a new product as @product" do
-      get :new, params: {}, session: valid_session
-      expect(assigns(:product)).to be_a_new(Product)
-    end
-  end
-
-  describe "GET #edit" do
-    it "assigns the requested product as @product" do
-      product = Product.create! valid_attributes
-      get :edit, params: {id: product.to_param}, session: valid_session
       expect(assigns(:product)).to eq(product)
     end
   end

@@ -27,9 +27,9 @@ Supplier.create([
 ])
 
 Place.create([
-  { hall: '4', shelf: '2L' },
-  { hall: '5B', shelf: '2B' },
-  { hall: '2', shelf: '2H' }
+  { hall: '4', shelf: Faker::StarWars.droid },
+  { hall: '5B', shelf: Faker::StarWars.droid },
+  { hall: '2', shelf: Faker::StarWars.droid }
 ])
 
 action_games = Category.where(name: ['Games', 'Eletrônicos', 'Ação']).collect(&:id)

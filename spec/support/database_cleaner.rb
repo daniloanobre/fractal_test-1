@@ -1,6 +1,5 @@
 # spec/support/database_cleaner.rb
 RSpec.configure do |config|
-
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
     DatabaseCleaner.clean_with(:truncation)
@@ -11,5 +10,4 @@ RSpec.configure do |config|
       example.run
     end
   end
-
 end
