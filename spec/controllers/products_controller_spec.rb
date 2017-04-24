@@ -39,14 +39,11 @@ RSpec.describe Api::V1::ProductsController, type: :controller do
   # ProductsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
-  before { $redis.redis.flushall() }
-
   describe "GET #index" do
     it "assigns all products as @products" do
       product = Product.create! valid_attributes
       get :index, params: {}, session: valid_session
       product = JSON.parse(ProductSerializer.new(product).to_json)
-      raise assigns(:products).inspect
       expect(assigns(:products)).to eq([product])
     end
   end

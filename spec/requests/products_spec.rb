@@ -38,8 +38,6 @@ RSpec.describe "Products", type: :request do
     }
   }
 
-  before { $redis.redis.flushall() }
-
   describe "/products" do
     context "GET" do
       before { create_list(:product, 10) }
