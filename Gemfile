@@ -51,7 +51,7 @@ group :development, :test do
   # Use Factory Girl to create objects dynamically
   gem 'factory_girl_rails'
   # Use to exec tests into controller with RSpec
-  # gem 'rails-controller-testing'
+  gem 'rails-controller-testing'
 end
 
 group :development do

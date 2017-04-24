@@ -20,7 +20,6 @@ module Api::V1
 
     # GET /products/1
     def show
-      # render json: @product
       render json: ProductSerializer.new(@product)
     end
 
