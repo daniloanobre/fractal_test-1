@@ -5,13 +5,12 @@ module Api::V1
 
     # GET /products
     def index
-      search = params[:name] || "*"
       conditions = {}
       conditions[:category] = params[:category] if params[:category].present?
 
       # with redis for perform_caching
-      @products = fetch_products(search, conditions)
-      
+      @products = fetch_products(params[:name], conditions)
+
       # without redis for perform_caching
       # @products = Product.search search, fields: [:name], where: conditions
 
