@@ -34,7 +34,7 @@ Back-End Application for tests to Fractal Tecnologia.
 
 3. If you want to access swagger doc, run:
   - user@user:~/path_to_cloned_folder$ **bower install**
-  - access in your browser: `http://localhos:3000/docs`
+  - access in your browser: `http://localhost:3000/docs`
 
 4. If you want to run rspec specs, run:
   - user@user:~/path_to_cloned_folder$ **rspec**
