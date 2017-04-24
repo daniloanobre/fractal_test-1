@@ -1,5 +1,6 @@
 language: ruby
-sudo: false
+dist: trusty
+sudo: true
 rvm:
   - 2.3.3
 
@@ -9,17 +10,16 @@ services:
   - elasticsearch
 
 addons:
-  postgresql: "9.5.5"
-
+  postgresql: "9.5"
+  apt:
+    sources:
+      - elasticsearch-2.x
+    packages:
+      - elasticsearch
+      
 before_script:
-  - curl -O https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/deb/elasticsearch/2.3.1/elasticsearch-2.3.1.deb && sudo dpkg -i --force-confnew elasticsearch-2.3.1.deb && sudo service elasticsearch restart
   - sleep 10
-  - psql -c 'create database fractal_test;' -U postgres
-
-install: gem install rails
-
-bundler_args: --without production
 
 script:
-  - bundle exec rails db:migrate RAILS_ENV=test
+  - bundle exec rails db:create db:migrate RAILS_ENV=test
   - bundle exec rspec
