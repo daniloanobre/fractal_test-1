@@ -15,33 +15,35 @@ module Api::V1
       # without redis for perform_caching
       # @products = Product.search search, fields: [:name], where: conditions
 
-      render json: @products, status: :ok
+      render json: @products
     end
 
     # GET /products/1
     def show
-      render json: @product
+      # render json: @product
+      render json: ProductSerializer.new(@product)
     end
 
     # GET /products/supplier
     def supplier
-      render json: @product.supplier
+      render json: SupplierSerializer.new(@product.supplier)
     end
 
     # GET /products/categories
     def categories
-      render json: @product.categories
+      render json: ActiveModel::Serializer::CollectionSerializer.new(@product.categories, 
+        each_serializer: CategorySerializer)
     end
 
     # GET /products/place
     def place
-      render json: @product.place
+      render json: PlaceSerializer.new(@product.place)
     end
 
     # POST /products
     def create
       @product = Product.new(product_params)
-      @product.categories  = Category.where(id: params[:category_id])
+      @product.categories = Category.where(id: params[:category_id])
 
       if @product.save
         # The deliver_later uses ActiveJob too, but i chose create another job for this
