@@ -43,7 +43,7 @@ Back-End Application for tests to Fractal Tecnologia.
 
 ## API Routes ##
 
-### Auth ###
+### Products ###
 |   Action                                 | Method    | URL                                               
 | -----------------------------------------|-----------|----------------------------------------------------- 
 |   List products                          |  `GET`    | /v1/products
