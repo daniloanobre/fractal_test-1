@@ -36,8 +36,11 @@ Back-End Application for tests to Fractal Tecnologia.
   - user@user:~/path_to_cloned_folder$ **bower install**
   - access in your browser: `http://localhost:3000/docs`
 
-4. If you want to run rspec specs, run:
+4. If you want to run rspec specs, type:
   - user@user:~/path_to_cloned_folder$ **rspec**
+
+5. If you want to run sidekiq for jobs, type:
+  - user@user:~/path_to_cloned_folder$ **sidekiq -C config/sidekiq.yml**
 
 ---
 
