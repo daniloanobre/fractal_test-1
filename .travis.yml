@@ -3,12 +3,10 @@ dist: trusty
 sudo: true
 rvm:
   - 2.3.3
-
 services:
   - postgresql
   - redis-server
   - elasticsearch
-
 addons:
   postgresql: "9.5"
   apt:
@@ -16,10 +14,11 @@ addons:
       - elasticsearch-2.x
     packages:
       - elasticsearch
-      
 before_script:
   - sleep 10
-
 script:
   - bundle exec rails db:create db:migrate RAILS_ENV=test
   - bundle exec rspec
+test:
+  post:
+    - bundle exec codeclimate-test-reporter

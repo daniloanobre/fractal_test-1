@@ -19,12 +19,14 @@ RSpec.describe Product, type: :model do
       product.supplier = supplier
       expect(product.supplier).to be supplier
     end
+
     it "belongs_to place" do
       product = build(:product)
       place = build(:place)
       product.place = place
       expect(product.place).to be place
     end
+
     it "has_and_belongs_to_many products" do
       product = build(:product)
       category = build(:category)

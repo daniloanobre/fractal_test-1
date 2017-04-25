@@ -5,6 +5,10 @@ RSpec.describe SupplierMailer, type: :mailer do
     let(:product) { create(:product) }
     let(:mail) { SupplierMailer.registered_product(product).deliver_now }
 
+    it "checking send email to supplier" do
+      expect { mail }.to change { ActionMailer::Base.deliveries.count }.by(1)
+    end
+
     it 'renders the subject' do
       expect(mail.subject).to eq('[Cadastro] Notificação de Cadastro de Produto')
     end

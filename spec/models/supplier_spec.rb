@@ -11,6 +11,7 @@ RSpec.describe Supplier, type: :model do
         expect(build(:supplier, company_name: '  ')).to_not be_valid
         expect(build(:supplier, company_name: nil)).to_not be_valid
       end
+
       it 'a email not void' do
         expect(build(:supplier, email: '  ')).to_not be_valid
         expect(build(:supplier, email: nil)).to_not be_valid

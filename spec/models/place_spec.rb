@@ -10,6 +10,7 @@ RSpec.describe Place, type: :model do
       expect(build(:place, hall: '  ')).to_not be_valid
       expect(build(:place, hall: nil)).to_not be_valid
     end
+
     it 'a shelf not void' do
       expect(build(:place, shelf: '  ')).to_not be_valid
       expect(build(:place, shelf: nil)).to_not be_valid
