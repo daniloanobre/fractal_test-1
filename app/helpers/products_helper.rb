@@ -1,6 +1,7 @@
 module ProductsHelper
   def fetch_products(search, conditions)
-    redis_key = "products:#{search || 00}:#{conditions["name"] || 00}"
+    category = conditions[:category] unless conditions[:category].nil?
+    redis_key = "products:#{search || 0}:#{category || 0}"
     products_json = $redis.get(redis_key)
     if products_json.nil?
       search = search || "*"

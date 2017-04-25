@@ -9,7 +9,7 @@
   "schemes": [
     "http"
   ],
-  "basePath": "/api/v1",
+  "basePath": "/v1",
   "produces": [
     "application/json"
   ],
@@ -23,14 +23,12 @@
             "name": "category",
             "in": "query",
             "description": "Display products with this category.",
-            "required": true,
             "type": "string"
           },
           {
             "name": "name",
             "in": "query",
             "description": "Display products with this full or partial name.",
-            "required": true,
             "type": "string"
           }
         ],
@@ -66,6 +64,7 @@
             "in": "body",
             "name": "Product",
             "description": "Product Object",
+            "required": true,
             "schema": {
               "$ref": "#/definitions/Product"
             }
@@ -124,6 +123,7 @@
             "in": "body",
             "name": "Product",
             "description": "Product Object",
+            "required": true,
             "schema": {
               "$ref": "#/definitions/Product"
             }
@@ -163,10 +163,19 @@
         }
       }
     },
-    "/products/categories": {
+    "/products/{id}/categories": {
       "get": {
         "summary": "Product Categories",
         "description": "The Product Categories endpoint returns categories of the product.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "Product ID that needs to be fetched",
+            "type": "string"
+          }
+        ],
         "tags": [
           "Categories"
         ],
@@ -189,10 +198,19 @@
         }
       }
     },
-    "/products/supplier": {
+    "/products/{id}/supplier": {
       "get": {
         "summary": "Product Owner",
         "description": "The Product Owner endpoint returns a owner that supply the products to market.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "Product ID that needs to be fetched",
+            "type": "string"
+          }
+        ],
         "tags": [
           "Supplier"
         ],
@@ -212,10 +230,19 @@
         }
       }
     },
-    "/products/place": {
+    "/products/{id}/place": {
       "get": {
         "summary": "Product Location",
         "description": "The Product Location endpoint returns where the product is located in market.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "Product ID that needs to be fetched",
+            "type": "string"
+          }
+        ],
         "tags": [
           "Place"
         ],

@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   scope module: 'api' do
     namespace :v1 do
       resources :products
-      get 'products/:id/supplier', to: 'products#supplier'
-      get 'products/:id/categories', to: 'products#categories'
-      get 'products/:id/place', to: 'products#place'
+      get 'products/:id/supplier', to: 'products#supplier', as: 'product_supplier'
+      get 'products/:id/categories', to: 'products#categories', as: 'product_categories'
+      get 'products/:id/place', to: 'products#place', as: 'product_place'
     end
   end
 

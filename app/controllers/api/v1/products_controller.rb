@@ -58,7 +58,7 @@ module Api::V1
 
     # PATCH/PUT /products/1
     def update
-      @product.categories = Category.where(id: params[:category_id])
+      @product.categories = Category.where(id: params[:category_id]) unless params[:category_id].nil?
 
       if @product.update(product_params)
         render json: @product
