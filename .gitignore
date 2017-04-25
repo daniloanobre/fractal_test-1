@@ -19,5 +19,8 @@
 # Ignore front-end libs folder.
 /public/vendors/
 
-# Ignore coverage tempfiles
+# Ignore coverage tempfiles.
 /coverage/*
+
+# Ignore database settings.
+/config/database.yml
