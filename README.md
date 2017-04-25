@@ -1,10 +1,7 @@
 # Fractal Test
 [![Build Status](https://travis-ci.org/laerciosb/fractal_test.svg?branch=master)](https://travis-ci.org/laerciosb/fractal_test)
-
 [![Code Climate](https://codeclimate.com/github/laerciosb/fractal_test/badges/gpa.svg)](https://codeclimate.com/github/laerciosb/fractal_test)
-
 [![Test Coverage](https://codeclimate.com/github/laerciosb/fractal_test/badges/coverage.svg)](https://codeclimate.com/github/laerciosb/fractal_test/coverage)
-
 [![Issue Count](https://codeclimate.com/github/laerciosb/fractal_test/badges/issue_count.svg)](https://codeclimate.com/github/laerciosb/fractal_test)
 
 Back-End Application for tests to Fractal Tecnologia.
