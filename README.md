@@ -65,6 +65,6 @@ Back-End Application for tests to Fractal Tecnologia.
 
 ## Contributors
 
-> Laércio de Souza Bezerra ([laerciosb](https://github.com/laerciosb)) laerciosouza@gmail.com
+> Laércio de Souza Bezerra ([laerciosb](https://github.com/laerciosb)) laerciosbezerra@gmail.com
 
 ---
