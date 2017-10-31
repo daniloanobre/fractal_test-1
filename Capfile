@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Load DSL and set up stages
 require "capistrano/setup"
 
@@ -13,10 +15,10 @@ require "capistrano/deploy"
 # install_plugin Capistrano::SCM::Svn
 # or
 
-require 'capistrano/rails'
-require 'capistrano/bundler'
-require 'capistrano/rvm'
-require 'capistrano/puma'
+require "capistrano/rails"
+require "capistrano/bundler"
+require "capistrano/rvm"
+require "capistrano/puma"
 install_plugin Capistrano::Puma
 
 require "capistrano/scm/git"

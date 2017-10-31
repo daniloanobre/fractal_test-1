@@ -1,4 +1,6 @@
-require 'rails_helper'
+# frozen_string_literal: true
+
+require "rails_helper"
 
 RSpec.describe "Products", type: :request do
 
@@ -31,7 +33,7 @@ RSpec.describe "Products", type: :request do
     return {
       category_id: valid_categories.map(&:id),
       product: {
-        name: Faker::Name.name, 
+        name: Faker::Name.name,
         supplier_id: valid_supplier.id,
         place_id: valid_place.id
       }
@@ -84,7 +86,7 @@ RSpec.describe "Products", type: :request do
       it "should be returns a product join supplier, place and categories" do
         check_presence_of_product_associations
       end
-      
+
       context "associations" do
         it "should be returns a categories list from product" do
           check_presence_of_product_categories_association
@@ -136,7 +138,7 @@ RSpec.describe "Products", type: :request do
 
         it "should be returns the categories association from product" do
           get "/v1/products/#{JSON.parse(response.body)["id"]}/categories"
-          category_attrs = ActiveModel::Serializer::CollectionSerializer.new(valid_categories, 
+          category_attrs = ActiveModel::Serializer::CollectionSerializer.new(valid_categories,
             each_serializer: CategorySerializer).first.attributes
           expect(JSON.parse(response.body)).to include(category_attrs.as_json)
         end
@@ -153,7 +155,7 @@ RSpec.describe "Products", type: :request do
       it "should be returns a product join supplier, place and categories" do
         check_presence_of_product_associations
       end
-      
+
       context "associations" do
         it "should be returns a categories list from product" do
           check_presence_of_product_categories_association
@@ -179,7 +181,7 @@ RSpec.describe "Products", type: :request do
       it "should be returns a product join supplier, place and categories" do
         check_presence_of_product_associations
       end
-      
+
       context "associations" do
         it "should be returns a categories list from product" do
           check_presence_of_product_categories_association

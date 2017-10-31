@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ProductSerializer < ActiveModel::Serializer
   attributes :id, :name
   has_many :categories, serializer_each: CategorySerializer

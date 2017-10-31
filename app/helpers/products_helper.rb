@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ProductsHelper
   def fetch_products(search, conditions)
     category = conditions[:category] unless conditions[:category].nil?
@@ -6,7 +8,7 @@ module ProductsHelper
     if products_json.nil?
       search = search || "*"
       products = Product.search search, fields: [:name], where: conditions
-      products_json = ActiveModel::Serializer::CollectionSerializer.new(products, 
+      products_json = ActiveModel::Serializer::CollectionSerializer.new(products,
         each_serializer: ProductSerializer).to_json
       $redis.set(redis_key, products_json)
       # Expire the cache, every 5 hours

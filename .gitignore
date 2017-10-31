@@ -24,3 +24,7 @@
 
 # Ignore database settings.
 /config/database.yml
+
+# Ignore DotEnv Rails
+.env.development
+.env.test

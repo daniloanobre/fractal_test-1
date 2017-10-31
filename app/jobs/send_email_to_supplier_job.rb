@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SendEmailToSupplierJob < ApplicationJob
   queue_as :emails
 
@@ -6,7 +8,7 @@ class SendEmailToSupplierJob < ApplicationJob
   end
 
   def perform(product)
-    # The deliver_now not use ActiveJob and I did it to create Delay 
+    # The deliver_now not use ActiveJob and I did it to create Delay
     # and simulate a sophisticated background job.
     SupplierMailer.registered_product(product).deliver_now
   end

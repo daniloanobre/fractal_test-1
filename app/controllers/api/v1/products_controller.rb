@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Api::V1
   class ProductsController < ApiController
     include ProductsHelper
@@ -29,7 +31,7 @@ module Api::V1
 
     # GET /products/categories
     def categories
-      render json: ActiveModel::Serializer::CollectionSerializer.new(@product.categories, 
+      render json: ActiveModel::Serializer::CollectionSerializer.new(@product.categories,
         each_serializer: CategorySerializer)
     end
 
@@ -46,10 +48,10 @@ module Api::V1
       if @product.save
         # The deliver_later uses ActiveJob too, but i chose create another job for this
         # SupplierMailer.registered_product(@product).deliver_later
-        
+
         # So calling SendEmailToSupplierJob asyncronously with perform_later
         SendEmailToSupplierJob.perform_later @product
-        
+
         render json: @product, status: :created
       else
         render json: @product.errors, status: :unprocessable_entity

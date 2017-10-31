@@ -1,4 +1,6 @@
-require 'rails_helper'
+# frozen_string_literal: true
+
+require "rails_helper"
 
 RSpec.describe SendEmailToSupplierJob, type: :job do
   include ActiveJob::TestHelper
@@ -20,12 +22,12 @@ RSpec.describe SendEmailToSupplierJob, type: :job do
       .to have_enqueued_job.with(product)
   end
 
-  it 'executes perform' do
+  it "executes perform" do
     SupplierMailer.registered_product(product).deliver_now
     perform_enqueued_jobs { SendEmailToSupplierJob.perform_later(product) }
   end
 
-  it 'handles no results error' do
+  it "handles no results error" do
     allow(SupplierMailer).to receive(:registered_product).and_raise(Timeout::Error)
 
     perform_enqueued_jobs do

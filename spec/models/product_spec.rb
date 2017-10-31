@@ -1,18 +1,20 @@
-require 'rails_helper'
+# frozen_string_literal: true
+
+require "rails_helper"
 
 RSpec.describe Product, type: :model do
-  it 'should have a valid product' do
+  it "should have a valid product" do
     expect(build(:product)).to be_valid
   end
 
-  describe 'validations' do
-    it 'a name not void or nil' do
-      expect(build(:product, name: '  ')).to_not be_valid
+  describe "validations" do
+    it "a name not void or nil" do
+      expect(build(:product, name: "  ")).to_not be_valid
       expect(build(:product, name: nil)).to_not be_valid
     end
   end
 
-  describe 'associations' do 
+  describe "associations" do
     it "belongs_to supplier" do
       product = build(:product)
       supplier = build(:supplier)
