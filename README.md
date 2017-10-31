@@ -1,6 +1,7 @@
 # Fractal Test
 [![Build Status](https://travis-ci.org/laerciosb/fractal_test.svg?branch=master)](https://travis-ci.org/laerciosb/fractal_test)
-[![Code Climate](https://codeclimate.com/github/laerciosb/fractal_test/badges/gpa.svg)](https://codeclimate.com/github/laerciosb/fractal_test)
+[![Maintainability](https://api.codeclimate.com/v1/badges/5d8fe0a3bbb06e8a686d/maintainability)](https://codeclimate.com/github/laerciosb/fractal_test/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/5d8fe0a3bbb06e8a686d/test_coverage)](https://codeclimate.com/github/laerciosb/fractal_test/test_coverage)
 [![Test Coverage](https://codeclimate.com/github/laerciosb/fractal_test/badges/coverage.svg)](https://codeclimate.com/github/laerciosb/fractal_test/coverage)
 [![Issue Count](https://codeclimate.com/github/laerciosb/fractal_test/badges/issue_count.svg)](https://codeclimate.com/github/laerciosb/fractal_test)
 
